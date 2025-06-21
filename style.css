@@ -1,0 +1,183 @@
+/* ...existing code... */
+body {
+  min-height: 100vh;
+  background: linear-gradient(120deg, #0f2027, #2c5364, #00c6ff, #43e97b 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Segoe UI", "Roboto", Arial, sans-serif;
+}
+.calcu-lator {
+  margin-top: 40px;
+  height: 500px;
+  width: 400px;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  border-radius: 25px;
+  display: grid;
+  transition: box-shadow 0.3s;
+}
+.calcu-lator:hover {
+  box-shadow: 0 16px 40px 0 rgba(31, 38, 135, 0.45), 0 1.5px 8px 0 #00c6ff;
+}
+.input-screen {
+  border-radius: 10px;
+  margin: 18px 12px 0 12px;
+  height: 50px;
+  width: 370px;
+  color: #222;
+  background: rgba(255, 255, 255, 0.7);
+  font-size: 1.5rem;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: none;
+  outline: none;
+  padding: 15px;
+  transition: box-shadow 0.2s, background 0.2s;
+}
+.input-screen:focus {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 16px #43e97b55;
+}
+.btn-container {
+  height: 335px;
+  width: 380px;
+  margin-top: 15px;
+  margin-left: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.btns {
+  background: linear-gradient(135deg, #20ac99 40%, #00c6ff 100%);
+  color: #fff;
+  cursor: pointer;
+  height: 55px;
+  width: 55px;
+  font-size: 1.3rem;
+  border: none;
+  border-radius: 12px;
+  margin: 10px;
+  font-weight: 900;
+  box-shadow: 0 2px 8px rgba(32, 172, 153, 0.18);
+  transition: background 0.3s, color 0.2s, transform 0.15s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.btns::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s;
+  z-index: 0;
+}
+.btns:hover {
+  background: linear-gradient(135deg, #43e97b 40%, #38f9d7 100%);
+  color: #222;
+  transform: scale(1.08) rotate(-2deg);
+  box-shadow: 0 6px 24px #43e97b55;
+}
+.btns:active {
+  background: linear-gradient(135deg, #0f2027 40%, #2c5364 100%);
+  color: #fff;
+  transform: scale(0.97);
+}
+.btns:hover::after {
+  width: 120px;
+  height: 120px;
+}
+.btns:focus {
+  outline: 2px solid #00c6ff;
+  outline-offset: 2px;
+}
+.btns.special {
+  background: linear-gradient(135deg, #ffb347 40%, #ffcc33 100%);
+  color: #222;
+  box-shadow: 0 2px 8px #ffcc3355;
+}
+.btns.special:hover {
+  background: linear-gradient(135deg, #ffcc33 40%, #ffe066 100%);
+  color: #fff;
+  box-shadow: 0 6px 24px #ffe06688;
+}
+.btns.equal {
+  background: linear-gradient(135deg, #ff5858 40%, #f09819 100%);
+  color: #fff;
+  box-shadow: 0 2px 8px #f0981955;
+}
+.btns.equal:hover {
+  background: linear-gradient(135deg, #f09819 40%, #ff5858 100%);
+  color: #fff;
+  box-shadow: 0 6px 24px #ff585888;
+}
+::-webkit-scrollbar {
+  width: 8px;
+  background: #2c5364;
+}
+::-webkit-scrollbar-thumb {
+  background: #20ac99;
+  border-radius: 8px;
+}
+/* ...existing code... */
+.calc-heading {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin-top: 12px;
+  margin-bottom: 3px;
+  color: #fff;
+  background: linear-gradient(90deg, #00c6ff 10%, #43e97b 90%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 8px #00c6ff88);
+  text-shadow: 0 2px 8px #43e97b55;
+  transition: letter-spacing 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+    filter 0.3s, text-shadow 0.3s;
+  cursor: pointer;
+  user-select: none;
+  animation: heading-pop 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.calc-heading:hover {
+  letter-spacing: 6px;
+  filter: drop-shadow(0 6px 24px #43e97bcc);
+  text-shadow: 0 6px 24px #00c6ff99, 0 0px 16px #fff8;
+  transform: scale(1.05) rotate(-1deg);
+  animation: heading-glow 0.7s alternate infinite;
+}
+
+@keyframes heading-pop {
+  0% {
+    transform: scale(0.7) rotate(-8deg);
+    opacity: 0;
+  }
+  80% {
+    transform: scale(1.1) rotate(2deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+@keyframes heading-glow {
+  0% {
+    text-shadow: 0 6px 24px #00c6ff99, 0 0px 16px #fff8;
+  }
+  100% {
+    text-shadow: 0 12px 32px #43e97bcc, 0 0px 32px #fff;
+  }
+}
+/* ...existing code... */
